@@ -45,7 +45,7 @@ int main()
     //Added 2 newlines at the end becuase that closing message in the debugger really annoys me need to remember to remove this later.
     //Added some formatting for flair
     cout << "Hello " << GREEN << users_name << RESET << " Your Personal Library is starting with "
-         << GREEN << STARTING_BOOKS_OWNED << RESET << " books. Hopefully you own " << GREEN << favorite_book << RESET << ".\n";
+        << GREEN << STARTING_BOOKS_OWNED << RESET << " books. Hopefully you own " << GREEN << favorite_book << RESET << ".\n";
     cout << "If you purchase one book a month you will reach you target library size in about " << GREEN << years_to_completion << RESET << " years" << " or " <<
-         GREEN << months_to_completion << RESET << " months.\n\n";
+        GREEN << months_to_completion << RESET << " months.\n\n";
 }
