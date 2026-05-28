@@ -1,4 +1,4 @@
-// Week01_Programming_Assignment.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Mach_C++_Programming_Assignments: This file contains the 'main' function. Program execution begins and ends there.
 // ITCS 2530
 // Chris Mach
 // 05/20/26
