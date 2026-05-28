@@ -132,6 +132,12 @@ int main()
         << setw(45) << collection_read_time
         << endl
         ;
+    //Reset
+    cout
+        << left
+        << setfill(' ')
+        ;
+
     //This needs to be changed later as right now due to assignment constratins I am saving
     //the file to the same folder as the cpp
     cout << "\nYour Library Report can be found in your documents.\n\n";
@@ -140,7 +146,6 @@ int main()
     //This needs to be changed later as right now due to assignment constratins
     //the file to the same folder as the cpp I want to write it to my documents relative to the user.
     ofstream file("Report.txt");
-    
     //File write intro / banner
     file
         << "\nHello " << users_name << ". !Welcome to your own little library!\n"
@@ -194,6 +199,11 @@ int main()
         << setw(15) << months_to_completion
         << setw(45) << collection_read_time
         << endl
+        ;
+    //Reset
+    file
+        << left
+        << setfill(' ')
         ;
     file.close();
 }
