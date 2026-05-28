@@ -42,7 +42,7 @@ int main()
     //While would be better since using if forces me to exit the program to get valid input.
     if (!(cin >> books_owned))
     {
-        cout << "Invalid entry please enter and integer! ";
+        cout << "Invalid entry please enter an integer! ";
         return -1;
     }
     //Converting variable to constant to keep a starting point for later calculations
@@ -58,7 +58,7 @@ int main()
     cout << "On average how many hours does it take to read a book?\n";
     if (!(cin >> time_to_read_a_book))
     {
-        cout << "Invalid entry please enter and integer! ";
+        cout << "Invalid entry please enter an integer! ";
         return -1;
     }
     //Wasn't sure about the calculation part of the instructions below
@@ -78,8 +78,7 @@ int main()
     //added this to account for the need for a double as well as precision formatting in the assignment.
     collection_read_time = books_owned * time_to_read_a_book / read_time_per_week;
 
-    //Coppied the file write code and changed to cout so I still have the banner in the window
-
+    //Copied the file write code and changed to cout so I still have the banner in the window
     cout
         << "\nHello " << users_name << ". !Welcome to your own little library!\n"
         << "Your Personal Library is starting with " << STARTING_BOOKS_OWNED
