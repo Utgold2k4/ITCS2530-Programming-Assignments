@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{365b03be-afa9-495c-8d74-726f2f8c7bc4}</ProjectGuid>
-    <RootNamespace>MachWeek01ProgrammingAssignment20May26</RootNamespace>
+    <ProjectGuid>{fe727582-7759-4a31-82c3-d618054fb082}</ProjectGuid>
+    <RootNamespace>MachCProgramingAssignments</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Mach_Week01_Programming_Assignment_20May26.cpp" />
+    <ClCompile Include="Mach_C++_Programing_Assignments.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

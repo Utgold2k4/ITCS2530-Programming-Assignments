@@ -1,0 +1,10 @@
+
+Hello Chris Mach. !Welcome to your own little library!
+Your Personal Library is starting with 12 books. Hopefully you own The Hobbit.
+If you purchase one book a month you will reach your target library size in about 3 years or 35 months.
+If you read your collection from start to finish it will take you 24.00 weeks to read the whole collection.
+
+Summary****************************Time to Collection Completion**********************Collection Read Time
+Name               Books Owned          Years   or    Months                                Weeks to read
+=========================================================================================================
+Chris Mach                  12              3             35                                        24.00
