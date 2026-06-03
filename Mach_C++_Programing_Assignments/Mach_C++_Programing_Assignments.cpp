@@ -23,13 +23,7 @@ int main()
     int time_to_read_a_book;
     double collection_read_time;
 
-    //commenting these out for now since txt files don't support it
-    //constants for formatting
-    //const string GREEN = "\033[32m";
-    //const string RESET = "\033[0m";
-
-
-    //Split the orignal cout and added formatting to meet requirements
+    //Split the orignal cout and added formatting to meet requirements.
     cout << "Welcome to your Personal Library Application.\n";
     //Getting input from user for variables
     cout << "Please Enter Your Name : \n";
@@ -50,15 +44,16 @@ int main()
     //Don't need to validate this since books_owned is being validated.
     const int STARTING_BOOKS_OWNED = books_owned;
     cout << "How many hours do you read per week the the nearest half hour?\n";
-    if (!(cin >> read_time_per_week))
+    //PA3 fixed 0 in denominator issues here which also aded anoth compount bool
+    if ((!(cin >> read_time_per_week)) || read_time_per_week == 0)
     {
-        cout << "Invalid entry please enter a valid number! ";
+        cout << "Invalid entry please enter a valid number greater than 0.\n\n";
         return -1;
     }
     cout << "On average how many hours does it take to read a book?\n";
     if (!(cin >> time_to_read_a_book))
     {
-        cout << "Invalid entry please enter an integer! ";
+        cout << "Invalid entry please enter an integer!\n\n";
         return -1;
     }
     //Wasn't sure about the calculation part of the instructions below
@@ -68,7 +63,7 @@ int main()
     cout << "What is the target size of your collection?\n";
     if (!(cin >> target_library_size))
     {
-        cout << "Invalid entry please enter an integer! ";
+        cout << "Invalid entry please enter an integer!\n\n";
         return -1;
     }
     //some basic maf
@@ -88,11 +83,93 @@ int main()
         << years_to_completion << " years or "
         << months_to_completion << " months.\n"
         << "If you read your collection from start to finish it will take you "
-        //setting precision for decimals and forcing them to display even if an int is stored  
-        //in the double
-        << fixed << setprecision(2) << collection_read_time << " weeks to read the whole collection\n\n";
+            //setting precision for decimals and forcing them to display even if an int is stored  
+            //in the double
+        << fixed << setprecision(2)
+        << collection_read_time
+        << " weeks to read the whole collection\n";
+    
+    //PA3 1st if else block with double bool
+    //PA3 Book ownership stats pulled from google
+    if (books_owned >= 1 && books_owned <= 10)
+    {
+        cout << "Your library very small.\n\n";
+    }
+    else if (books_owned >= 11 && books_owned <= 25)
+    {
+        cout << "Your library is small.\n\n";
+    }
+    else if (books_owned >= 26 && books_owned <= 50)
+    {
+        cout << "Your library is averaged sized.\n\n";
+    }
+    else if (books_owned >= 51 && books_owned <= 500)
+    {
+        cout << "Your Library is large.\n\n";
+    }
+    else if (books_owned >= 501 && books_owned <= 1000)
+    {
+        cout << "!!Your library is huge!!\n\n";
+    }
+    else if (books_owned > 1000)
+    {
+        cout << "Congratulations you are in the top 3 percent of American book ownership!!\n";
+    }
+    else
+    {
+        cout << "??Why don't you own any books if you have this app??\n";
+    }
 
-    //setting up a summary table
+    //PA3 logic block to drop variables when done with these if statements
+    {
+        //PA3 variables just for this portion
+        string read_pace = "";
+        string read_times = "";
+        //PA3 2nd else if bool for read pace average
+        if (time_to_read_a_book < 1)
+        {
+            cout << "Are you sure you can read that fast??\n";
+        }
+        else if (time_to_read_a_book >= 13 && time_to_read_a_book <= 20)
+        {
+            read_pace = "leisurely";
+        }
+        else if (time_to_read_a_book >= 8 && time_to_read_a_book <= 12)
+        {
+            read_pace = "average";
+        }
+        else
+        {
+            read_pace = "fast as lightning";
+        }
+        //PA3 3rd else if bool for read times per week average
+        if (read_time_per_week < 1)
+        {
+            cout << "You need to read more often!\n\n";
+        }
+        else if (read_time_per_week >= 1 && read_time_per_week <= 4)
+        {
+            read_times = "low";
+        }
+        else if (read_time_per_week >= 5 && read_time_per_week <= 9)
+        {
+            read_times = "average";
+        }
+        else
+        {
+            read_times = "a lot";
+        }
+        //PA3 if statment to verify stings arent empty
+        //PA3 really annoying that I can't just use .empty here but hey now I have another compound bool
+        if (read_pace != "" && read_times != "")
+        {
+            cout << "Your reading pace is " << read_pace << ".\n";
+            cout << "Your reading frequency is " << read_times << ".\n\n";
+        }
+        //PA3 no need for an else statement since the cout from the ifs will take care of low reading levels
+    }
+
+    //PA2 setting up a summary table
     cout
         << left << setw(15) << setfill('*')
         << "Summary"
@@ -206,4 +283,35 @@ int main()
         << setfill(' ')
         ;
     file.close();
+
+    //PA3 starting the menu
+    //will eventually turn the intro and reports into a structure or member function and add them to the
+    //menu. will also use this menu to select the different functions of the program but for now
+    //they are just basic cout statements.
+
+    int menu_input = 0;
+    cout << "Main Menu\n";
+    cout << "   1) Add a book\n";
+    cout << "   2) Remove a book\n";
+    cout << "   3) Edit a book\n";
+    cout << "   4) Exit\n";
+    cout << "Please enter the number for the menu option\n";
+    //case statement for menu
+    cin >> menu_input;
+    switch (menu_input) {
+    case 1:
+        cout << "Congratulations on your new book please enter its details.";
+        break;
+    case 2:
+        cout << "Please select the book you would like to remove from your collection.";
+        break;
+    case 3:
+        cout << "Please select the book you would like to edit.";
+        break;
+    case 4:
+        cout << "See you next time.";
+        return 0;
+    default:
+        cout << "Invalid entry, please select an option 1-4";
+    }
 }
