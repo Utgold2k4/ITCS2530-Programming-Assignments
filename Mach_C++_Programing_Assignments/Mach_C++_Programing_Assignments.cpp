@@ -8,6 +8,9 @@
 #include <iomanip>
 #include <string>
 #include <cmath>
+//PA4 Pretty sure just including random would be easier here
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main()
@@ -20,7 +23,7 @@ int main()
     int months_to_completion;
     int years_to_completion;
     double read_time_per_week;
-    int time_to_read_a_book;
+    double time_to_read_a_book;
     double collection_read_time;
 
     //Split the orignal cout and added formatting to meet requirements.
@@ -31,47 +34,106 @@ int main()
     getline(cin, users_name);
     cout << "What is your favorite book of all time?\n";
     getline(cin, favorite_book);
-    cout << "How many books do you currently own?\n";
-    //Adding validation to inputs using an if statment for all int inputs. 
-    //While would be better since using if forces me to exit the program to get valid input.
-    if (!(cin >> books_owned))
-    {
-        cout << "Invalid entry please enter an integer! ";
-        return -1;
-    }
-    //Converting variable to constant to keep a starting point for later calculations
-    //as the users library grows or shrinks
-    //Don't need to validate this since books_owned is being validated.
-    const int STARTING_BOOKS_OWNED = books_owned;
-    cout << "How many hours do you read per week the the nearest half hour?\n";
-    //PA3 fixed 0 in denominator issues here which also aded anoth compount bool
-    if ((!(cin >> read_time_per_week)) || read_time_per_week == 0)
-    {
-        cout << "Invalid entry please enter a valid number greater than 0.\n\n";
-        return -1;
-    }
-    cout << "On average how many hours does it take to read a book?\n";
-    if (!(cin >> time_to_read_a_book))
-    {
-        cout << "Invalid entry please enter an integer!\n\n";
-        return -1;
-    }
-    //Wasn't sure about the calculation part of the instructions below
-    //so I added this question and did some basic math.
-    //Your program needs to use variables and do some sort of calculation that is related to your
-    //hobby or interest. 
-    cout << "What is the target size of your collection?\n";
-    if (!(cin >> target_library_size))
-    {
-        cout << "Invalid entry please enter an integer!\n\n";
-        return -1;
-    }
+    //Adding validation to inputs using an if statment for all int inputs.
+    //PA4 Changing these validation to while loop so the program doesnt exit for every error
+        {
+            bool validation_test = false;
+            while (validation_test == false)
+            {
+                cout << "How many books do you currently own?\n";
+
+                if (!(cin >> books_owned))
+                {
+                    cout << "Invalid entry please enter an integer!\n";
+                    //fail state reset and safety buffer
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                }
+                else
+                {
+                    validation_test = true;
+                }
+            }
+        }
+
+        //Converting variable to constant to keep a starting point for later calculations
+        //as the users library grows or shrinks
+        //Don't need to validate this since books_owned is being validated.
+        const int STARTING_BOOKS_OWNED = books_owned;
+
+        //PA4 while validation #2
+        {
+            bool validation_test = false;
+            while (validation_test == false)
+            {
+                cout << "How many hours do you read per week the the nearest half hour?\n";
+                //PA3 fixed 0 in denominator issues here which also aded another compound bool
+                //PA4 fixed division by negative number issue
+                if ((!(cin >> read_time_per_week)) || read_time_per_week <= 0)
+                {
+                    cout << "Invalid entry please enter a valid number greater than 0.\n";
+                    //fail state reset and safety buffer
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                }
+                else
+                {
+                    validation_test = true;
+                }
+            }
+        }
+        //PA4 while validation #3
+        {
+            bool validation_test = false;
+            while (validation_test == false)
+            {
+                cout << "On average how many hours does it take to read a book?\n";
+                if ((!(cin >> time_to_read_a_book)) || time_to_read_a_book <= 0)
+                {
+                    cout << "Invalid entry please enter an number greater than 0!\n";
+                    //fail state reset and safety buffer
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                }
+                else
+                {
+                    validation_test = true;
+                }
+            }
+        }
+        //PA4 while validation #4
+        {
+            bool validation_test = false;
+            while (validation_test == false)
+            {
+                cout << "What is the target size of your collection?\n";
+                if (!(cin >> target_library_size))
+                {
+                    cout << "Invalid entry please enter an integer!\n";
+                    //fail state reset and safety buffer
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                }
+                else
+                {
+                    validation_test = true;
+                }
+            }
+        }
     //some basic maf
     //12.0 needed to round properly
     months_to_completion = target_library_size - STARTING_BOOKS_OWNED;
     years_to_completion = round(months_to_completion / 12.0);
     //added this to account for the need for a double as well as precision formatting in the assignment.
-    collection_read_time = books_owned * time_to_read_a_book / read_time_per_week;
+    
+    //PA4 replacing math collection_read_time = books_owned * time_to_read_a_book / read_time_per_week;
+    //PA4 with a while loop to do the math to meet the fixed number of times loop.
+    //collection_read_time = books_owned * time_to_read_a_book / read_time_per_week;
+    collection_read_time = 0;
+    for (int index = 0; index < books_owned; index++)
+    {
+        collection_read_time += time_to_read_a_book / read_time_per_week;
+    }
 
     //Copied the file write code and changed to cout so I still have the banner in the window
     cout
@@ -288,30 +350,80 @@ int main()
     //will eventually turn the intro and reports into a structure or member function and add them to the
     //menu. will also use this menu to select the different functions of the program but for now
     //they are just basic cout statements.
+    //PA3 case statement for menu
 
+    //PA4 Needed to wrap this input for cin fails since entering things like leters caused infinite loops
+    //PA4 in the book recommendation.
     int menu_input = 0;
-    cout << "Main Menu\n";
-    cout << "   1) Add a book\n";
-    cout << "   2) Remove a book\n";
-    cout << "   3) Edit a book\n";
-    cout << "   4) Exit\n";
-    cout << "Please enter the number for the menu option\n";
-    //case statement for menu
-    cin >> menu_input;
+    while (true)
+    {
+        cout << "Main Menu\n";
+        cout << "   1) Add a book\n";
+        cout << "   2) Remove a book\n";
+        cout << "   3) Edit a book\n";
+        cout << "   4) Exit\n";
+        cout << "Please enter a number from the menu option\n";
+        
+        cin >> menu_input;
+
+        if (cin.fail())
+        {
+            cout << "Invalid entry, please select an option 1 - 4.\n";
+            cin.clear();
+            cin.ignore(10000, '\n');
+            continue;
+        }
+
+        if (menu_input < 1 || menu_input > 4)
+        {
+            cout << "Out of range. Enter 1-4 only.\n";
+            continue;
+        }
+        //PA4 exits loop on valid input
+        break;
+    }
+
     switch (menu_input) {
     case 1:
-        cout << "Congratulations on your new book please enter its details.";
+        cout << "Congratulations on your new book please enter its details.\n";
         break;
     case 2:
-        cout << "Please select the book you would like to remove from your collection.";
+        cout << "Please select the book you would like to remove from your collection.\n";
         break;
     case 3:
-        cout << "Please select the book you would like to edit.";
+        cout << "Please select the book you would like to edit.\n";
         break;
     case 4:
-        cout << "See you next time.";
+        cout << "See you next time.\n";
         return 0;
+    //PA4 This is redundant now with the menu input validator but will be good later when I add more menu
+    //PA4 options incase I forget to update the validator.
     default:
-        cout << "Invalid entry, please select an option 1-4";
+        cout << "Invalid entry, please select an option 1-4\n";
+    }
+
+    //PA4 Repeat loop until user decides to quit
+    //PA4 In the future I will use array index to randomly select a book from the collection
+    //PA4 I will also turn this into a function called from the menu.
+    //PA4 Random book to read from collection reccomendation. Will always run at least once.
+    {
+        char user_continue = 'y';
+        do
+        {
+            cout << "Your reading recommendtion is " << "Replace this with title array index " << ".\n";
+            cout << "Would you like a different reccomendation? Y/N\n";
+            cin >> user_continue;
+            while (user_continue != 'y' && user_continue != 'Y' && user_continue != 'n' 
+                  && user_continue != 'N')
+            {
+                cout << "Invalid entry please enter Y or N only\n";
+                cin >> user_continue;
+                //fail state reset and safety buffer
+                //There are better ways to do this
+                //cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }
+        } while (user_continue == 'y' || user_continue == 'Y');
     }
 }

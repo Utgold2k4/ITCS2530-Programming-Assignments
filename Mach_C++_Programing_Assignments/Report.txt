@@ -1,10 +1,10 @@
 
-Hello asdf. !Welcome to your own little library!
-Your Personal Library is starting with 12 books. Hopefully you own asdf.
-If you purchase one book a month you will reach your target library size in about 3 years or 33 months.
-If you read your collection from start to finish it will take you 35.08 weeks to read the whole collection.
+Hello Mach. !Welcome to your own little library!
+Your Personal Library is starting with 12 books. Hopefully you own Test.
+If you purchase one book a month you will reach your target library size in about 12 years or 138 months.
+If you read your collection from start to finish it will take you 9.47 weeks to read the whole collection.
 
 Summary****************************Time to Collection Completion**********************Collection Read Time
 Name               Books Owned          Years   or    Months                                Weeks to read
 =========================================================================================================
-asdf                        12              3             33                                        35.08
+Mach                        12             12            138                                         9.47
