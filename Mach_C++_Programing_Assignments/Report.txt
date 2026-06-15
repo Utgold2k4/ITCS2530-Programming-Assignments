@@ -1,10 +1,10 @@
 
-Hello Mach. !Welcome to your own little library!
-Your Personal Library is starting with 12 books. Hopefully you own Test.
-If you purchase one book a month you will reach your target library size in about 12 years or 138 months.
-If you read your collection from start to finish it will take you 9.47 weeks to read the whole collection.
+Hello 123. !Welcome to your own little library!
+Your Personal Library is starting with 1 books. Hopefully you own 123.
+If you purchase one book a month you will reach your target library size in about 0 years or 0 months.
+If you read your collection from start to finish it will take you 8.33 weeks to read the whole collection.
 
 Summary****************************Time to Collection Completion**********************Collection Read Time
 Name               Books Owned          Years   or    Months                                Weeks to read
 =========================================================================================================
-Mach                        12             12            138                                         9.47
+123                          1              0              0                                         8.33
