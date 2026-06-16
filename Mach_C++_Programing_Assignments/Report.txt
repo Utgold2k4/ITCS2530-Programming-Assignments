@@ -1,10 +1,10 @@
 
-Hello Test. !Welcome to your own little library!
-Your Personal Library is starting with 12 books. Hopefully you own The Hobbit.
-If you purchase one book a month you will reach your target library size in about 12 years or 138 months.
-If you read your collection from start to finish it will take you 12.80 weeks to read the whole collection.
+Hello asdf. !Welcome to your own little library!
+Your Personal Library is starting with 123 books. Hopefully you own asdf.
+If you purchase one book a month you will reach your target library size in about 92 years or 1100 months.
+If you read your collection from start to finish it will take you 123.00 weeks to read the whole collection.
 
 Summary****************************Time to Collection Completion**********************Collection Read Time
 Name               Books Owned          Years   or    Months                                Weeks to read
 =========================================================================================================
-Test                        12             12            138                                        12.80
+asdf                       123             92           1100                                       123.00

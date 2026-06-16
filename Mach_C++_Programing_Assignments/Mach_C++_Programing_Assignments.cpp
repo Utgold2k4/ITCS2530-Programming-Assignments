@@ -8,7 +8,6 @@
 #include <iomanip>
 #include <string>
 #include <cmath>
-//PA4 Pretty sure just including random would be easier here
 #include <cstdlib>
 #include <ctime>
 using namespace std;
@@ -491,8 +490,8 @@ void color_change()
 
 	// convert to hex-like value for system("color")
 	string colors[] = {
-		"0", "1", "2", "3", "4", "5", "6", "7",
-		"8", "9", "A", "B", "C", "D", "E"
+		"1", "2", "3", "4", "5", "6", "7",
+		"8", "9", "A", "B", "C", "D", "E", "F"
 	};
 
 	string command = "color 0" + colors[color];
