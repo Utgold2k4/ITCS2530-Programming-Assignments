@@ -1,9 +1,7 @@
 Copyright (c) 2026 Chris Mach
-
-Permission is granted to use and modify this code for educational purposes only. Commercial use is not allowed without permission.
+Permission is granted to use and modify this code for educational purposes only.
+Commercial use is not allowed without permission.
 
 Limitation of liability
-
 In no event shall the copyright holder or contributors be liable for any claim, damages, losses, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
-
 By using this software, the user agrees that they assume all risks associated with its use.
